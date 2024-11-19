@@ -1,0 +1,521 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    color: white;
+    
+    font-family: "Oswald", sans-serif;
+    font-style: normal;
+
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+@keyframes rotar {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.girar{
+    animation: rotar infinite 5s linear;
+}
+
+body{
+    background-color: #000;
+}
+
+header{
+    min-height: 100vh;
+    width: 100vw;
+    background-image: url(./img/fondo-header.jpg);
+    background-size:cover;
+}
+nav{
+    backdrop-filter: brightness(.3);
+
+    padding-top: 10px;
+
+    min-height: 100vh;
+    width: 100vw;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+h1{
+    color: white;
+    font-size: 8rem;
+    font-family: "whisper", cursive;
+    width: 100%;
+    text-align: center;
+}
+
+
+/*Nav*/
+
+.link-nav-container{
+    width: 100vw;
+    min-height: 85vh;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items:center;
+    flex-wrap: wrap;
+}
+
+.btn-nav{
+    width: 35vw;
+    height: 20vh;
+    display: flex;
+
+}
+
+.link-nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+
+    font-size: 4rem;
+
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: .3s all ease-in-out;
+
+    border-radius: 10px;
+}
+
+.link-nav:hover{
+    background-color: #eeac3910;
+}
+
+.link-nav::before{
+    content: "";
+    width: 0px;
+    height: 5px;
+    border-radius: 80px;
+    background-color: white;
+    position: absolute;
+    bottom: 10%;
+    left: 25%;
+}
+
+.link-nav:hover::before{
+    transition: .3s all ease-in-out;
+    width: 50%;
+    background-color: #eeac39;
+}
+
+
+
+
+
+
+
+
+/*estilos generales de generos*/
+.genero{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    background-color: #050505;
+    margin: 150px 0;
+}
+
+.titulo{
+    font-size: 5rem;
+    padding: 20px 40px;
+    color: #000;
+}
+
+.presentacion-genero{
+    min-height: 100vh;
+    width: 40vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0 30px 100px;
+    background-color: #eeac39;
+}
+.presentacion-genero p{
+    color: black;
+    font-weight: 500;
+    font-size: 25px;
+}
+
+
+.canciones-genero{
+    width: 60vw;
+    min-height: 100vh;
+    padding: 30px;
+
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 50px;
+    
+
+}
+
+/*cards musica*/
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px ;
+
+    background-color: #dd9b28ea;
+    cursor: pointer;
+    transition: .5s;
+    width: 250px;
+
+    position: relative;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+
+}
+.card img{
+    width: 110%;
+    position: absolute;
+    bottom:-10;
+    transition: .5s all ease-in-out;
+}
+
+
+.card-info{
+    transition: .5s all ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0009;
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: -100%;
+
+}
+
+.card h5{
+    font-size: 20px;
+}
+
+.card:hover img{
+    filter: blur(5px);
+}
+.card:hover{
+    transform: scale(1.05);
+}
+.card:hover .card-info{
+    top: 0;
+}
+.card .canciones-disco{
+    display: none;
+}
+
+/* Card abierta */
+
+.card-abierta{
+    padding: 15px ;
+
+    background-color: #5d380d82;
+    cursor: pointer;
+    transition: .5s;
+    backdrop-filter: blur(20px);
+
+    border-radius: 10px;
+
+    position: fixed;
+    width: 80vw;
+    height: 90vh;
+    top: 50%;           
+    left: 50%;      
+    transform: translate(-50%, -50%);
+    box-shadow: 10px 10px 19px 0px rgba(0,0,0,0.75);
+
+    display: flex;
+    z-index: 100;
+}
+.info-disco{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 50%;
+    height: 100%;
+}
+
+.presentacion-disco{
+    width: 90%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+}
+.presentacion-disco h5{
+    font-size: 3rem;
+}
+
+.canciones-disco{
+    width: 90%;
+    height: 80%;
+    margin: 50px;
+    background-color: #5d380db3;
+}
+.cancion{
+    width: 100%;
+    height:50px ;
+
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 15px;
+    align-items: center;
+    background-color: #05050575;
+    transition: .3s all ease-in-out;
+}
+.cancion:hover{
+    background-color:#4632216f ;
+    transition: .3s all ease-in-out;
+}
+.cancion img{
+    width: 35px;
+    border-radius: 100%;
+}
+
+
+
+/*Tienda*/
+
+.presentacion-tienda{
+    height: 100vh;
+    width: 100vw;
+    background-image: url(./img/fondo-tienda.jpg);
+    background-size: cover;
+    backdrop-filter: saturate(0);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.presentacion-tienda h2{
+    font-size: 200px;
+    color: #eeac39;
+}
+
+.tienda{
+    padding: 50px;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #050505;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+
+    gap: 20px;
+    
+}
+
+.card-tienda{
+    width: 15vw;
+    height: 15vw;
+    position: relative;
+    overflow: hidden;
+    background:#fff;
+    /*object-fit:scale-down;*/
+}
+.card-tienda:hover .info-venta{
+    top: 0;
+}
+
+.card-tienda img{
+    object-fit:contain;
+    width: 100%;
+    height: 100%;
+}
+
+.info-venta{
+    transition: .4s ease-in-out all;
+    width: 100%;
+    height: 100%;
+    top: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #707070dd;
+    padding: 30px;
+}
+.info-venta *{
+    color: white;
+}
+
+.data-venta{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+.data-venta h5{
+    font-size: 20px;
+}
+
+.boton-compra{
+    border: solid 2px #111;
+    color: #111;
+    font-weight: 700;
+    border-radius: 5px;
+    padding: 3px 15px;
+    transition: all ease-in-out .3s;
+}
+.boton-compra:hover{
+    background-color: #111;
+    color: white;
+    transform: translateY(-4px);
+}
+
+/*Footer*/
+
+footer{
+    width: 100vw;
+    height: 30vh;
+    background-color: #06080d;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: flex-start;
+
+    position: relative;
+}
+
+
+#boton-volver{
+    position: absolute;
+    right: 5vw;
+    bottom: 10px;
+
+    font-size: 2rem;
+    transition: .1s all ease-out;
+}
+#boton-volver:hover{
+    color: #000;
+}
+
+.logo{
+    color: #aaf;
+    font-size: 1.5rem;
+    transition: .2s all ease-out;
+}
+.logo:hover{
+    color: white;
+}
+
+.contenedor-redes{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 30px;
+    gap: 10px;
+}
+
+/*media query para celulares*/
+@media only screen and (max-width: 600px) {
+    .link-nav-container{
+        flex-direction: column;
+
+    }
+    .btn-nav{
+        width: 100%;
+    }
+
+    .genero{
+        flex-direction: column;
+    }
+    .presentacion-genero{
+        width: 100%;
+    }
+
+    .canciones-genero{
+        margin-top: 15vh;
+        width: 100%;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .card{
+        flex-direction: row;
+        justify-content: end;
+        width: 100vw;
+        height: 30vh;
+        padding: 0;
+        margin: 0;
+        position: relative;
+        border-radius: 0;
+    }
+    .card-info{
+        width: 60vw;
+    }
+    .card img{
+        border-radius: 0;
+        height: 30vh;
+        width: 30vh;
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    
+    
+    /*Tienda*/
+    
+    .tienda{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .card-tienda{
+        width: 80vw;
+        height: 30vh;
+        overflow: visible;
+        display: flex;
+    }
+    .card-tienda img{
+        width: 50%;
+    }
+    .info-venta{
+        position:relative;
+        width: 50%;
+        height: 100%;
+        top: 0;
+        padding: 10px;
+        justify-content: center;
+        gap: 20px;
+        
+    }
+    .data-venta h5{
+        font-size: 20px;
+    }
+    
+    .boton-compra{
+        background-color: #111;
+        color: white;
+    }
+}
